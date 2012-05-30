@@ -26,6 +26,9 @@ class UrlCacheAppHelper extends Helper {
  * @return void
  */
   function beforeRender() {
+  	if (empty($this->request)) {
+  		return;
+  	}
 	$done = Configure::read('UrlCache.runtime.beforeRender');
 	if (!$done) {
 		if (Configure::read('UrlCache.pageFiles')) {
