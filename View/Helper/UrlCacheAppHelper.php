@@ -16,16 +16,16 @@ App::uses('Helper', 'View');
 App::uses('Inflector', 'Utility');
 
 class UrlCacheAppHelper extends Helper {
-  var $_key = '';
-  var $_extras = array();
-  var $_paramFields = array('controller', 'plugin', 'action', 'prefix');
+  public $_key = '';
+  public $_extras = array();
+  public $_paramFields = array('controller', 'plugin', 'action', 'prefix');
 
 /**
  * This function is responsible for setting up the Url cache before the application starts generating urls in views
  *
  * @return void
  */
-  function beforeRender() {
+  public function beforeRender($viewFile) {
   	if (empty($this->request)) {
   		return;
   	}
@@ -50,7 +50,7 @@ class UrlCacheAppHelper extends Helper {
  *
  * @return void
  */
-  function afterLayout() {
+  public function afterLayout($layoutFile) {
 	$done = Configure::read('UrlCache.runtime.afterLayout');
 	if (!$done) {
 		Cache::write($this->_key, UrlCacheManager::$cache, '_cake_core_');
@@ -66,7 +66,7 @@ class UrlCacheAppHelper extends Helper {
  * @return string
  * @see Helper::url()
  */
-  function url($url = null, $full = false) {
+  public function url($url = null, $full = false) {
 	$keyUrl = $url;
 	if (is_array($keyUrl)) {
 	  $keyUrl += $this->_extras;
