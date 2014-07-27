@@ -1,0 +1,18 @@
+{
+	"name": "sams/url-cache",
+	"description": "CakePHP URL Cache Plugin",
+	"type": "cakephp-plugin",
+	"keywords": ["cakephp", "url cache engine"],
+	"homepage": "https://github.com/sams/UrlCache",
+	"authors": [
+		{
+			"name": "sams",
+			"role": "Author"
+		}
+	],
+	"require": {
+		"php": ">=5.3.0",
+		"composer/installers": "*"
+	},
+		"installer-name": "url_cache"
+}
